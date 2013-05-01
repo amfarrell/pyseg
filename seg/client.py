@@ -10,7 +10,7 @@ from itertools import groupby
 from operator import itemgetter
 
 from .exceptions import (
-    NERError,
+    SegError,
 )
 
 from .utils import (
@@ -25,8 +25,8 @@ XML_EPATTERN        = re.compile(r'<wi num=".+?" entity="(.+?)">(.+?)</wi>')
 INLINEXML_EPATTERN  = re.compile(r'<([A-Z]+?)>(.+?)</\1>')
 
 
-class NER(object):
-    """Wrapper for server-based Stanford NER tagger."""
+class Seg(object):
+    """Wrapper for server-based Stanford Word Segmenter."""
     
     def tag_text(self, text):
         pass
@@ -95,8 +95,8 @@ class NER(object):
         return json.dumps(self.get_entities(text))
 
 
-class SocketNER(NER):
-    """Stanford NER over simple TCP/IP socket."""
+class SocketSeg(Seg):
+    """Stanford Word Segmenter over simple TCP/IP socket."""
 
     def __init__(self, host='localhost', port=1234, output_format='inlineXML'):
         if output_format not in ('slashTags', 'xml', 'inlineXML'):
@@ -120,8 +120,8 @@ class SocketNER(NER):
         return tagged_text
 
 
-class HttpNER(NER):
-    """Stanford NER using HTTP protocol."""
+class HttpSeg(Seg):
+    """Stanford Word Segmenter using HTTP protocol."""
 
     def __init__(self, host='localhost', port=1234, location='/stanford-ner/ner',
             classifier=None, output_format='inlineXML', preserve_spacing=True):

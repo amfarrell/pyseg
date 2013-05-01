@@ -3,7 +3,7 @@
 
 import os
 
-from ner import __version__
+from seg import __version__
 
 try:
     from setuptools import setup
@@ -15,15 +15,15 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as fp:
     description = fp.read()
 
 specs = {
-    'name' : 'ner',
+    'name' : 'seg',
     'version' : __version__,
     'description' : 'Python client for the Stanford Named Entity Recognizer',
     'long_description' : description,
-    'url' : 'http://github.com/dat/pyner',
-    'author' : 'Dat Hoang',
-    'keywords' : ['ner', 'stanford named entity recognizer', 'stanford named entity tagger'],
+    'url' : 'http://github.com/amfarrell/pyseg',
+    'author' : 'Andrew M. Farrell',
+    'keywords' : ['seg', 'stanford word segmenter', 'stanford chinese word segmenter'],
     'license' : 'BSD',
-    'packages' : ['ner'],
+    'packages' : ['seg'],
     'test_suite' : 'tests.all_tests',
     'classifiers' : (
         'Development Status :: 3 - Alpha',
