@@ -1,10 +1,11 @@
-# PyNER 
+# PySEG
 
-The Python interface to the [Stanford Named Entity Recognizer](https://github.com/dat/stanford-ner).
+The Python interface to the [Stanford Word Segmenter](https://github.com/afarrell/stanford-).
 
 ## Project Homepage
 
-* [Stanford Named Entity Recognizer](http://nlp.stanford.edu/software/CRF-NER.shtml)
+* [Stanford Word Segmenter](http://nlp.stanford.edu/software/segmenter.shtml)
+
 
 ## Installation
 
@@ -12,17 +13,10 @@ The Python interface to the [Stanford Named Entity Recognizer](https://github.co
 
 ## Basic Usage
 
-    >>> import ner
-    >>> tagger = ner.HttpNER(host='localhost', port=8080)
-    >>> tagger.get_entities("University of California is located in California, United States")
-    {'LOCATION': ['California', 'United States'],
-     'ORGANIZATION': ['University of California']}
-    >>> tagger.json_entities("Alice went to the Museum of Natural History.")
-    '{"ORGANIZATION": ["Museum of Natural History"], "PERSON": ["Alice"]}'
-
-## Online Demo
-
-* [Graphical demo of several models](http://nlp.stanford.edu:8080/ner/)
+    >>> import seg
+    >>> tagger = seg.HttpNER(host='localhost', port=8080)
+    >>> tagger.segment("英格蘭足總盃\n")
+    TODO: put result here.
 
 ## License
 
@@ -30,6 +24,7 @@ BSD License
 
 ## Author
 
-PyNER is developed by maintained by Dat Hoang.
-It can be found here: http://github.com/dat/pyner
-
+PySEG is developed by maintained by Andrew M. Farrell.
+It can be found here: http://github.com/amfarrell/pyseg
+It is based on PyNER which is developed by maintained by Dat Hoang.
+and can be found here: http://github.com/dat/pyner
